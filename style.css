@@ -1,0 +1,917 @@
+:root {
+    --primary: #1e3a8a;
+    --primary-light: #2563eb;
+    --secondary: #0f172a;
+    --accent: #f59e0b;
+    --accent-hover: #d97706;
+    --bg-light: #f8fafc;
+    --surface: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --success: #10b981;
+    --radius: 14px;
+    --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-light);
+}
+
+.btn-nav {
+    background: var(--primary);
+    color: #fff !important;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem !important;
+}
+
+.btn-nav:hover {
+    background: var(--primary-light);
+}
+
+/* Hero & Invitation Card */
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+    color: #ffffff;
+    padding: 4.5rem 5% 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    color: #fcd34d;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.hero-theme {
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    color: #cbd5e1;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    font-style: italic;
+}
+
+.invitation-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.35);
+}
+
+.invitation-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #93c5fd;
+    margin-bottom: 0.5rem;
+}
+
+.guest-name {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.guest-category {
+    display: inline-block;
+    background: var(--accent);
+    color: #0f172a;
+    font-weight: 700;
+    padding: 0.35rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.invitation-note {
+    font-size: 0.92rem;
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0f172a;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.btn-whatsapp {
+    background: #16a34a;
+    color: #ffffff;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+.btn-whatsapp:hover {
+    background: #15803d;
+}
+
+/* Container & Sections */
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 4rem 5%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-tag {
+    color: var(--primary-light);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.section-header h2 {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    color: var(--secondary);
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #dbeafe;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Rundown Table / Timeline */
+.rundown-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.rundown-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    gap: 1rem;
+}
+
+.rundown-item:last-child {
+    border-bottom: none;
+}
+
+.rundown-time {
+    font-weight: 700;
+    color: var(--primary-light);
+    background: #eff6ff;
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.rundown-detail h4 {
+    font-size: 1.05rem;
+    color: var(--secondary);
+    margin-bottom: 0.2rem;
+}
+
+.rundown-detail p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.benefit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary-light);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.benefit-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    color: var(--secondary);
+}
+
+.benefit-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+/* Location & RSVP Split */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.map-frame {
+    width: 100%;
+    height: 360px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.15rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: var(--secondary);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-light);
+}
+
+.rsvp-alert {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 600;
+    font-size: 0.92rem;
+    border: 1px solid #86efac;
+}
+
+/* Admin Page Styles */
+.admin-header {
+    background: var(--secondary);
+    color: #ffffff;
+    padding: 2.5rem 5%;
+}
+
+.admin-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+th, td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+}
+
+th {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: var(--secondary);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background: #f8fafc;
+}
+
+.badge-cat {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.badge-kampus {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-mitra {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-alumni {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.link-preview {
+    font-family: monospace;
+    font-size: 0.82rem;
+    background: #f1f5f9;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    color: #334155;
+    display: inline-block;
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background: var(--surface);
+}
+
+/* ===== RSVP ADMIN STYLES ===== */
+.rsvp-count-badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
+
+.rsvp-source-badge {
+    display: inline-block;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+}
+
+.source-cloud {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.source-local {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.btn-outline-dark {
+    background: var(--surface);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.btn-outline-dark:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+.btn-delete-rsvp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.4rem 0.65rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-delete-rsvp:hover {
+    background: #fee2e2;
+    border-color: #f87171;
+}
+
+.badge-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-hadir-booth {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-hadir-vip {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-tidak-hadir {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+/* ===== PASSWORD GATE ===== */
+.password-gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1.5rem;
+}
+
+.password-gate-box {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.password-gate-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.password-gate-box h2 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.password-gate-box > p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+}
+
+.password-error {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 0.88rem;
+    border: 1px solid #fecaca;
+}
+
+.password-back-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: var(--primary-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.password-back-link:hover {
+    text-decoration: underline;
+}
+
+.admin-content-hidden {
+    display: none;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 200;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--text-main);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ===== RESPONSIVE: TABLET (max 768px) ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 1.25rem 5%;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .btn-nav {
+        text-align: center;
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+    .hero {
+        padding: 3rem 5% 3.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .invitation-box {
+        padding: 1.5rem;
+    }
+
+    .container {
+        padding: 2.5rem 4%;
+    }
+
+    .rundown-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .rundown-time {
+        width: fit-content;
+    }
+
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .map-frame {
+        height: 250px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-header {
+        padding: 1.5rem 4%;
+    }
+
+    .admin-header h1 {
+        font-size: 1.4rem !important;
+    }
+
+    .admin-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th, td {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.82rem;
+    }
+
+    .btn-whatsapp {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.78rem;
+        white-space: nowrap;
+    }
+
+    .link-preview {
+        max-width: 160px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ===== RESPONSIVE: MOBILE KECIL (max 480px) ===== */
+@media (max-width: 480px) {
+    .hero {
+        padding: 2.5rem 4% 3rem;
+    }
+
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+
+    .hero-theme {
+        font-size: 0.9rem;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .invitation-box {
+        padding: 1.25rem;
+    }
+
+    .guest-name {
+        font-size: 1.2rem;
+    }
+
+    .guest-category {
+        font-size: 0.78rem;
+        padding: 0.3rem 0.85rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 2rem 4%;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .rundown-item {
+        padding: 1rem;
+    }
+
+    .benefit-card {
+        padding: 1.15rem;
+    }
+
+    .form-control {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.88rem;
+    }
+
+    .password-gate-box {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .password-gate-box h2 {
+        font-size: 1.25rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 1.5rem 4%;
+    }
+}

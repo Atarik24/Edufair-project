@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Blast &amp; Generator Link - Edu Fair 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Password Gate Overlay -->
+    <div id="password-gate" class="password-gate">
+        <div class="password-gate-box">
+            <div class="password-gate-icon">🔒</div>
+            <h2>Panel Admin Terkunci</h2>
+            <p>Masukkan password untuk mengakses panel admin blast.</p>
+            <form id="password-form">
+                <div class="form-group">
+                    <input type="password" id="admin-password" class="form-control" placeholder="Masukkan password..." required autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">🔓 Buka Panel Admin</button>
+            </form>
+            <div id="password-error" class="password-error"></div>
+            <a href="index.html" class="password-back-link">⬅ Kembali ke Halaman Undangan</a>
+        </div>
+    </div>
+
+    <!-- Konten Admin (tersembunyi sampai password benar) -->
+    <div id="admin-content" class="admin-content-hidden">
+        <nav class="navbar">
+            <a href="index.html" class="brand">🎓 EduFair<span>2026</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">⬅ Kembali ke Halaman Undangan</a></li>
+            </ul>
+        </nav>
+
+        <header class="admin-header">
+            <div class="container" style="padding: 0;">
+                <span class="hero-badge">Sistem Blast Peserta</span>
+                <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Generator Tautan &amp; WhatsApp Blast</h1>
+                <p style="color: #cbd5e1;">Kelola data tamu dari file <strong>data-tamu.csv</strong> dan kirimkan tautan undangan terpersonalisasi secara otomatis.</p>
+            </div>
+        </header>
+
+        <main class="container" style="padding-top: 2.5rem;">
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="admin-controls">
+                    <div>
+                        <h3 style="margin-bottom: 0.25rem;">📂 Impor File CSV Data Tamu</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">
+                            Sistem otomatis memuat sampel <code>data-tamu.csv</code>. Anda juga dapat mengunggah file CSV kustom (kolom: <code>id, nama_tamu, instansi, kategori, no_whatsapp</code>).
+                        </p>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+                        <input type="file" id="csv-file-input" accept=".csv" class="form-control" style="width: auto; padding: 0.5rem;">
+                        <button id="btn-reset-csv" class="btn btn-primary" style="padding: 0.65rem 1.1rem; font-size: 0.88rem;">Muat Ulang Sampel Default</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama Tamu</th>
+                            <th>Instansi</th>
+                            <th>Kategori</th>
+                            <th>No. WhatsApp</th>
+                            <th>Preview Link Personalisasi</th>
+                            <th>Aksi Blast</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guest-table-body">
+                        <!-- Diisi secara dinamis oleh script.js -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Seksi Data RSVP Masuk -->
+            <div style="margin-top: 3rem;">
+                <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                    <span class="section-tag">📋 Rekap Konfirmasi</span>
+                    <h2 style="font-size: 1.5rem;">Data RSVP Masuk</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.35rem;">
+                        Semua konfirmasi kehadiran yang dikirim tamu melalui halaman undangan akan muncul di sini.
+                    </p>
+                </div>
+
+                <div class="card" style="margin-bottom: 1.25rem;">
+                    <div class="admin-controls">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                            <span id="rsvp-count" class="rsvp-count-badge">0 respons masuk</span>
+                            <span id="rsvp-source" class="rsvp-source-badge source-local">💾 localStorage</span>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button id="btn-refresh-rsvp" class="btn btn-outline-dark" style="padding: 0.65rem 1.1rem; font-size: 0.88rem;">🔄 Refresh</button>
+                            <button id="btn-export-rsvp" class="btn btn-primary" style="padding: 0.65rem 1.1rem; font-size: 0.88rem;">📥 Export CSV</button>
+                            <button id="btn-clear-rsvp" class="btn btn-danger" style="padding: 0.65rem 1.1rem; font-size: 0.88rem;">🗑️ Hapus Semua Data</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Waktu Kirim</th>
+                                <th>Nama / Instansi</th>
+                                <th>Kategori</th>
+                                <th>Status Kehadiran</th>
+                                <th>Jumlah Delegasi</th>
+                                <th>Catatan / Kebutuhan Khusus</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rsvp-table-body">
+                            <!-- Diisi secara dinamis oleh script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Sistem Admin Undangan Dinamis — Edu Fair &amp; Career Day.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
